@@ -1,0 +1,53 @@
+﻿@model Bookstore.Model.Book
+
+@{
+    ViewData["Title"] = "Remover";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>deseja realmente remover este item?</h3>
+<div>
+    <h4>Livros</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PublishingHouse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PublishingHouse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.YearOfPublishing)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.YearOfPublishing)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Remover" class="btn btn-default" /> |
+            <a asp-action="Index">Voltar a lista</a>
+        </div>
+    </form>
+</div>
