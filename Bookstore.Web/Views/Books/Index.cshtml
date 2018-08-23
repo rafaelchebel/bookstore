@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Bookstore.Model.Book>
+
+@{
+    ViewData["Title"] = "Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Livros</h2>
+
+<p>
+    <a asp-action="Create">Criar novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PublishingHouse)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YearOfPublishing)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublishingHouse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearOfPublishing)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.Id })" data-toggle="tooltip" title="Editar">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a> |
+                <a href="@Url.Action("Edit", new { id = item.Id })" data-toggle="tooltip" title="Remover">
+                    <i class="glyphicon glyphicon-remove"></i>
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
